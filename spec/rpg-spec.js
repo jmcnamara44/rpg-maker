@@ -1,5 +1,8 @@
 import { Character } from './../src/character.js';
 import { Warrior } from './../src/character.js';
+import { Wizard } from './../src/character.js';
+import { Thief } from './../src/character.js';
+import { Priest } from './../src/character.js';
 
 describe('Character', function() {
   let reusableCharacter;
@@ -13,9 +16,26 @@ describe('Character', function() {
   });
 
   it('should test if warrior inherits character', function() {
-    let newWarrior = new Warrior(reusableCharacter.name, reusableCharacter.race);
-
+    let newWarrior = new Warrior(reusableCharacter.name, reusableCharacter.race)
     expect(newWarrior.hp).toEqual(150);
     expect(newWarrior.stamina).toEqual(100);
+  });
+  it ('should test if wizard inherits character', function() {
+    let newWizard = new Wizard("Gandalf", "Human");
+    expect(newWizard.hp).toEqual(70);
+    expect(newWizard.mana).toEqual(150);
+    expect(newWizard.stamina).toEqual(60);
+  });
+  it('should test if thief inherits character', function() {
+    let newThief = new Thief("Anna", "Orc");
+    expect(newThief.hp).toEqual(80);
+    expect(newThief.mana).toEqual(60);
+    expect(newThief.stamina).toEqual(150);
+  });
+  it('should test if priest inherits character', function() {
+    let newPriest = new Priest("Cassie", "Ent");
+    expect(newPriest.hp).toEqual(75);
+    expect(newPriest.mana).toEqual(160);
+    expect(newPriest.stamina).toEqual(60);
   });
 });
