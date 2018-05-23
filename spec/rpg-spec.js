@@ -3,6 +3,10 @@ import { Warrior } from './../src/character.js';
 import { Wizard } from './../src/character.js';
 import { Thief } from './../src/character.js';
 import { Priest } from './../src/character.js';
+import { Item } from './../src/item.js';
+import { LightArmor } from './../src/item.js';
+import { Staff } from './../src/item.js';
+import { levelUpBook } from './../src/item.js';
 
 describe('Character', function() {
   let reusableCharacter;
@@ -50,5 +54,28 @@ describe('Character', function() {
     newWarrior.addItem('armor');
     newWarrior.dropItem('shield');
     expect(newWarrior.inventory.length).toEqual(2);
+  });
+  it('should test if items are picked up', function() {
+    let newWarrior = new Warrior("Lea", "Khajit");
+    let newLightArmor = new LightArmor();
+    let newWizard = new Wizard("Leo", "Drow");
+    let newStaff = new Staff();
+    newWarrior.addItem(newLightArmor);
+    newWizard.addItem(newStaff);
+    expect(newWarrior.hp).toEqual(160);
+    expect(newWizard.mana).toEqual(160);
+  });
+  it('should test if inventory dropping removes stats', function() {
+    let newWarrior = new Warrior("Rod", "Half Elf");
+    let newLightArmor = new LightArmor();
+    newWarrior.addItem(newLightArmor);
+    newWarrior.dropItem(newLightArmor);
+    expect(newWarrior.hp).toEqual(150);
+  });
+  it('should test if leveling works', function() {
+    let newWizard = new Wizard("Leo", "Drow");
+    let newBook = new levelUpBook();
+    newWizard.addItem(newBook);
+    expect(newWizard.level).toEqual(2);
   });
 });

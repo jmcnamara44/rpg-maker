@@ -5,14 +5,34 @@ export class Character {
     this.hp = 50;
     this.mana = 50;
     this.stamina = 50;
+    this.level = 1;
+    this.experience = 0;
     this.inventory = [];
   }
-
+  levelUp() {
+    this.level += 1;
+  }
+  expGain(exp) {
+    this.experience += exp;
+    if (this.experience >= 1000) {
+      this.experience = 0;
+      this.levelUp();
+    }
+  }
   addItem(item) {
     this.inventory.push(item);
+    this.hp += item.hpMod;
+    this.mana += item.manaMod;
+    this.stamina += item.staminaMod;
+    if (item.experienceMod > 0) {
+      this.expGain(item.experienceMod);
+    }
   }
   dropItem(item){
     this.inventory.splice(item, 1);
+    this.hp -= item.hpMod;
+    this.mana -= item.manaMod;
+    this.stamina -= item.staminaMod
   }
 }
 
