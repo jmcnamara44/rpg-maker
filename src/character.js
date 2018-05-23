@@ -11,6 +11,9 @@ export class Character {
   addItem(item) {
     this.inventory.push(item);
   }
+  dropItem(item){
+    this.inventory.splice(item, 1);
+  }
 }
 
 export class Warrior extends Character {

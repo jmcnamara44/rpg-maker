@@ -43,4 +43,12 @@ describe('Character', function() {
     newWarrior.addItem('sword');
     expect(newWarrior.inventory[0]).toEqual('sword');
   });
+  it('should test if inventory dropping works', function() {
+    let newWarrior = new Warrior("Rod", "Half Elf");
+    newWarrior.addItem('sword');
+    newWarrior.addItem('shield');
+    newWarrior.addItem('armor');
+    newWarrior.dropItem('shield');
+    expect(newWarrior.inventory.length).toEqual(2);
+  });
 });
