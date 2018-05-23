@@ -5,6 +5,11 @@ export class Character {
     this.hp = 50;
     this.mana = 50;
     this.stamina = 50;
+    this.inventory = [];
+  }
+
+  addItem(item) {
+    this.inventory.push(item);
   }
 }
 

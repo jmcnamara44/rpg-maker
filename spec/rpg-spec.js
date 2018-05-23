@@ -38,4 +38,9 @@ describe('Character', function() {
     expect(newPriest.mana).toEqual(160);
     expect(newPriest.stamina).toEqual(60);
   });
+  it('should test if inventory adding works', function() {
+    let newWarrior = new Warrior("Jack", "Hobbit");
+    newWarrior.addItem('sword');
+    expect(newWarrior.inventory[0]).toEqual('sword');
+  });
 });
