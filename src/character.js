@@ -55,6 +55,7 @@ export class Warrior extends Character {
   constructor(name, race) {
     super(name, race);
     this.hp += 100;
+    console.log("WARRIOR HP: " + this.hp);
     this.stamina += 50;
   }
 }

@@ -108,8 +108,9 @@ describe('Character', function() {
 describe('Battle', function() {
   it('should test if battling works', function() {
     let newWarrior = new Warrior("Rod", "Half Elf");
+    console.log(newWarrior.hp);
     let newWizard = new Wizard("Leo", "Drow");
-    let newBattle = new Battle(newWarrior, newWizard);
+    console.log(newWizard.hp);
     let newAttack = new Attack();
     let newDefend = new Defend();
     let newMagic = new Magic();
@@ -119,8 +120,15 @@ describe('Battle', function() {
     newWizard.spells.push(newAttack);
     newWizard.spells.push(newDefend);
     newWizard.spells.push(newMagic);
+    let newBattle = new Battle(newWarrior, newWizard);
+    console.log('warrior hp: ' + newWarrior.hp);
+    console.log('wizard hp: ' + newWizard.hp);
     newBattle.characterOneAction(newMagic);
-    newBattle.characterTwoAction(newMagic);
-    expect(newBattle.battling()).toEqual('Battle Over!')
+    newBattle.characterOneAction(newMagic);
+    newBattle.characterOneAction(newMagic);
+    newBattle.characterOneAction(newAttack);
+    console.log('warrior hp: ' + newWarrior.hp);
+    console.log('wizard hp: ' + newWizard.hp);
+    expect(newBattle.challengerTwo.hp).toEqual(0);
   });
 });

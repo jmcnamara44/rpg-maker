@@ -1,8 +1,6 @@
 export class Spells {
   constructor(){
-    this.attack = 0;
-    this.defend = 0;
-    this.magic = 0;
+    this.hp= 0;
   }
 }
 
@@ -10,7 +8,7 @@ export class Attack extends Spells
 {
   constructor() {
   super()
-  this.attack = 10;
+  this.hp = 10;
   }
 }
 
@@ -19,7 +17,7 @@ export class Defend extends Spells
   constructor()
   {
     super()
-    this.defend = 10;
+    this.hp= 10;
   }
 }
 export class Magic extends Spells
@@ -27,6 +25,6 @@ export class Magic extends Spells
   constructor()
   {
     super()
-    this.magic = 20;
+    this.hp = 20;
   }
 }

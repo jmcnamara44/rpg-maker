@@ -6,29 +6,10 @@ export class Battle {
   }
 
   characterOneAction(spell){
-    this.challengerTwo.hp -= this.attack;
-    this.challengerOne.hp += this.defend;
-    this.challengerTwo.hp -= this.magic;
+    this.challengerTwo.hp -= spell.hp;
   }
 
   characterTwoAction(spell){
-    this.challengerOne.hp -= this.attack;
-    this.challengerTwo.hp += this.defend;
-    this.challengerOne.hp -= this.magic;
-  }
-
-  battling(){
-    while ((this.challengerOne.hp > 0) && (this.challengerTwo.hp > 0)) {
-      if (this.battleTurn % 2 === 0) {
-        this.challengerOneAction()
-        this.battleTurn += 1;
-      } else if (this.battleTurn % 2 !== 0) {
-        this.characterTwoAction();
-        this.battleTurn += 1;
-      }
-    }
-    if (this.challengerOne.hp <= 0 || this.challengerTwo.hp <= 0) {
-      return 'Battle Over!';
-    }
+    this.challengerOne.hp -= spell.hp;
   }
 }
