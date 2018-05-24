@@ -6,10 +6,18 @@ export class Battle {
   }
 
   characterOneAction(spell){
-    this.challengerTwo.hp -= spell.hp;
+    if (this.battleTurn % 2 != 0)
+    {
+      this.challengerTwo.hp -= spell.hp;
+      this.battleTurn += 1;
+    }
   }
 
   characterTwoAction(spell){
-    this.challengerOne.hp -= spell.hp;
+    if (this.battleTurn % 2 == 0)
+    {
+      this.challengerOne.hp -= spell.hp;
+      this.battleTurn += 1;
+    }
   }
 }
