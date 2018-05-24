@@ -17,7 +17,7 @@ export class Defend extends Spells
   constructor()
   {
     super()
-    this.hp= 10;
+    this.hp = 10;
   }
 }
 export class Magic extends Spells

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>An RPG</title>
+  </head>
+  <body>
+    <form class="character" id="character-creation">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+      <label for="race">Race:</label>
+      <select class="race" name="race" id="race">
+        <option value="human">Human</option>
+        <option value="elf">Elf</option>
+        <option value="orc">Orc</option>
+        <option value="hobbit">Hobbit</option>
+        <option value="dwarf">Dwarf</option>
+        <option value="undead">Undead</option>
+      </select>
+      <select class="class" name="class" id="class">
+        <option value=1>Warrior</option>
+        <option value=2>Wizard</option>
+        <option value=3>Thief</option>
+        <option value=4>Priest</option>
+      </select>
+      <button type="submit" name="button">Start</button>
+    </form>
+    <p><span id="hero_name"></span></p>
+  </body>
+</html>
