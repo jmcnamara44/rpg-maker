@@ -27,3 +27,17 @@ export class levelUpBook extends Item {
     this.experienceMod = 1000;
   }
 }
+
+export class WizardHat extends Item {
+  constructor(){
+    super()
+    this.manaMod = 10;
+  }
+}
+
+export class WizardRobe extends Item {
+  constructor(){
+    super()
+    this.manaMod = 10;
+  }
+}

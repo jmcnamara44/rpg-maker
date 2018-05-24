@@ -7,6 +7,8 @@ import { Item } from './../src/item.js';
 import { LightArmor } from './../src/item.js';
 import { Staff } from './../src/item.js';
 import { levelUpBook } from './../src/item.js';
+import { WizardHat } from './../src/item.js';
+import { WizardRobe } from './../src/item.js';
 
 describe('Character', function() {
   let reusableCharacter;
@@ -77,5 +79,22 @@ describe('Character', function() {
     let newBook = new levelUpBook();
     newWizard.addItem(newBook);
     expect(newWizard.level).toEqual(2);
+  });
+  it('should test if inventory limits', function() {
+    let newWizard = new Wizard("Leo", "Drow");
+    let wizardHat = new WizardHat();
+    let newBook = new levelUpBook();
+    let newLightArmor = new LightArmor();
+    let newStaff = new Staff();
+    let wizardRobe = new WizardRobe();
+    let otherStaff = new Staff();
+    newWizard.addItem(wizardHat);
+    newWizard.addItem(newBook);
+    newWizard.addItem(newLightArmor);
+    newWizard.addItem(newStaff);
+    newWizard.addItem(wizardRobe);
+    newWizard.addItem(otherStaff);
+    console.log(newWizard.inventory);
+    expect(newWizard.inventory.length).toEqual(5);
   });
 });

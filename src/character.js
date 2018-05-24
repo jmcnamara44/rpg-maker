@@ -27,6 +27,9 @@ export class Character {
     if (item.experienceMod > 0) {
       this.expGain(item.experienceMod);
     }
+    if (this.inventory.length > 5) {
+      this.inventory.pop();
+    }
   }
   dropItem(item){
     this.inventory.splice(item, 1);
