@@ -1,4 +1,5 @@
 import { Character } from './../src/character.js';
+import { Monster } from './../src/character.js';
 import { Warrior } from './../src/character.js';
 import { Wizard } from './../src/character.js';
 import { Thief } from './../src/character.js';
@@ -9,6 +10,11 @@ import { Staff } from './../src/item.js';
 import { levelUpBook } from './../src/item.js';
 import { WizardHat } from './../src/item.js';
 import { WizardRobe } from './../src/item.js';
+import { Spells } from './../src/spells.js';
+import { Attack } from './../src/spells.js';
+import { Defend } from './../src/spells.js';
+import { Magic } from './../src/spells.js';
+import { Battle } from './../src/battle.js';
 
 describe('Character', function() {
   let reusableCharacter;
@@ -96,5 +102,25 @@ describe('Character', function() {
     newWizard.addItem(otherStaff);
     console.log(newWizard.inventory);
     expect(newWizard.inventory.length).toEqual(5);
+  });
+});
+
+describe('Battle', function() {
+  it('should test if battling works', function() {
+    let newWarrior = new Warrior("Rod", "Half Elf");
+    let newWizard = new Wizard("Leo", "Drow");
+    let newBattle = new Battle(newWarrior, newWizard);
+    let newAttack = new Attack();
+    let newDefend = new Defend();
+    let newMagic = new Magic();
+    newWarrior.spells.push(newAttack);
+    newWarrior.spells.push(newDefend);
+    newWarrior.spells.push(newMagic);
+    newWizard.spells.push(newAttack);
+    newWizard.spells.push(newDefend);
+    newWizard.spells.push(newMagic);
+    newBattle.characterOneAction(newMagic);
+    newBattle.characterTwoAction(newMagic);
+    expect(newBattle.battling()).toEqual('Battle Over!')
   });
 });

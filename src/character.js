@@ -7,6 +7,7 @@ export class Character {
     this.stamina = 50;
     this.level = 1;
     this.experience = 0;
+    this.spells = [];
     this.inventory = [];
   }
   levelUp() {
@@ -18,6 +19,9 @@ export class Character {
       this.experience = 0;
       this.levelUp();
     }
+  }
+  addSpell(spell){
+    this.spells.push(spell);
   }
   addItem(item) {
     this.inventory.push(item);
@@ -36,6 +40,14 @@ export class Character {
     this.hp -= item.hpMod;
     this.mana -= item.manaMod;
     this.stamina -= item.staminaMod
+  }
+}
+
+export class Monster extends Character {
+  constructor(name, race) {
+    super(name, race);
+    this.hp += 10;
+    this.stamina += 10;
   }
 }
 
